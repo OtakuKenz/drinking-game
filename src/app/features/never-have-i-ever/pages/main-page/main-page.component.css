@@ -1,0 +1,34 @@
+.example-card {
+  max-width: 80%;
+}
+
+.center {
+  margin: auto;
+}
+
+.center-div-content {
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  width: 100%;          
+}
+
+.marign-bottom-10{
+  margin-bottom: 10px;
+}
+
+.timer-form {
+  display: flex;
+  flex-direction: column; /* stack children vertically */
+  align-items: center;    /* center horizontally */
+  gap: 16px;              /* spacing between input and button */
+  width: 300px;           /* optional fixed width */
+  margin: 0 auto;         /* center form horizontally in container */
+}
+
+.question-display {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.4;
+}

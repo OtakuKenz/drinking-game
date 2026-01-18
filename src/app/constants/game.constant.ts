@@ -4,11 +4,6 @@ export const games: Game[] = [
     link: "5-second-game",
     description: "Give 3 answers to the question within 5 seconds, otherwise take a shot."
   },
-  {
-    title: "Test game",
-    link: "",
-    description: ""
-  }
 ]
 
 export interface Game {

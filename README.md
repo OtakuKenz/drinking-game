@@ -1,46 +1,39 @@
 # DrinkingGame
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.7.
-But was upgraded to Angular 21.
+Project developed using Angular 21 and is also using Material.
 
-## Development server
+## Overview
 
-To start a local development server, run:
+Main goal of this is project is to compile different drinking games we can play.
 
-```bash
-ng serve
-```
+## Strucure
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Current struture:
 
-## Code scaffolding
+- For features
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+  - features/(name of the feature)
 
-```bash
-ng generate component component-name
-```
+  - features/(name of the feature)/pages - page for that feature
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+  - features/(name of the feature)/components - components for that feature
 
-```bash
-ng generate --help
-```
+  - features/(name of the feature)/constants - constants for that feature
 
-## Building
+    - This will contain all constants used for the feature, including the prompts, questions, and so on.
 
-To build the project run:
+  - features/(name of the feature)/components - components for that feature
 
-```bash
-ng build
-```
+- App constants
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+  - constants/game.constant.ts
+  
+      - This will contain the list of games available. Content will be rendered in game-selection screen.
 
-## Running unit tests
+      - Ensure that the link matches with the routing inside `app.routes.ts`
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## Repo Rule
 
-```bash
-ng test
-```
+`main` branch is protected to prevent accidental changes. Changes should be done via PR to `main`. 
+
+GitHub Actions also set to build and run tests during PR to protect `main` branch.

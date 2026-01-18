@@ -1,0 +1,22 @@
+<div class="container">
+  <h2>Select game:</h2>
+  <mat-grid-list cols="2" rowHeight="1:2">
+    @for (item of avaiableGames; track $index) {
+    <mat-grid-tile>
+      <mat-card class="game-card" appearance="outlined">
+        <mat-card-header>
+          <mat-card-title>{{item.title}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            {{item.description}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button type="button" matButton (click)="gameSelected(item.link)">Game</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+    }
+  </mat-grid-list>
+</div>

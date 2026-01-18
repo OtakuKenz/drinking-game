@@ -1,0 +1,12 @@
+.timer-display {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.center-buttons {
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  width: 100%;          
+}

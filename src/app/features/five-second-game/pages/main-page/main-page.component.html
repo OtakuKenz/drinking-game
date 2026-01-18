@@ -1,0 +1,31 @@
+@if (question) {
+<mat-card class="example-card center" appearance="outlined">
+  <mat-card-content>
+    <div class="center-div-content marign-bottom-10">
+      <p class="question-display">
+        {{question.question}}
+      </p>
+    </div>
+    <app-timer #timer (finished)="timeUp()" [duration]="timerDuration" class="marign-bottom-10"></app-timer>
+  </mat-card-content>
+  @if (showNext) {
+  <mat-card-actions>
+    <div class="center-div-content"><button matButton type="submit" (click)="pickQuestion()" class="center-actions">Next
+        question!</button></div>
+  </mat-card-actions>
+  }
+
+</mat-card>
+} @else{
+<form class="timer-form">
+  <mat-form-field>
+    <mat-label>Timer duration</mat-label>
+    <input placeholder="Enter duration" id="timerValue" matInput type="number" [formControl]="timerFormControl">
+    @if (!timerFormControl.valid) {
+    <mat-error>Duration is <strong>required</strong> and must not exceed <strong>60</strong> seconds.</mat-error>
+    }
+  </mat-form-field>
+  <button matButton="elevated" class="center" type="button" (click)="setTimerDuration()">Start!!
+  </button>
+</form>
+}

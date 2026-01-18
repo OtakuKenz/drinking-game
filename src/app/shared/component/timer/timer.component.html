@@ -1,0 +1,22 @@
+@if (displayTime) {
+<div class="timer-display">
+  @if (timer > 0) {
+  <p>Time left: {{ timer }}s</p>
+  }
+  @if (timer === 0) {
+  Time's up!
+  }
+</div>
+}
+
+@if (displayStart) {
+<div class="center-buttons">
+  <button matButton type="button" (click)="start()">{{startTimerLabel}}</button>
+</div>
+}
+
+@if (displayStop) {
+<div class="center-buttons">
+  <button matButton type="button" (click)="stop()">{{stopTimerLabel}}</button>
+</div>
+}

@@ -1,0 +1,21 @@
+@if (question) {
+<mat-card class="example-card center" appearance="outlined">
+  <mat-card-content>
+    <div class="center-div-content marign-bottom-10">
+      <p class="question-display">
+        {{question}}
+      </p>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <div class="center-div-content"><button matButton type="submit" (click)="pickQuestion()" class="center-actions">Next
+        question!</button></div>
+  </mat-card-actions>
+
+</mat-card>
+} @else{
+<div class="center-div-content">
+  <button matButton="elevated" class="center" type="button" (click)="pickQuestion()">Start!!
+  </button>
+</div>
+}

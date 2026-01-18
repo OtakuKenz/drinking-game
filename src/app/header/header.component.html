@@ -1,6 +1,14 @@
 <mat-toolbar>
-  <button type="button" matIconButton class="example-icon" aria-label="Example icon-button with menu icon">
+  <button type="button" matIconButton [matMenuTriggerFor]="menu">
     <mat-icon>menu</mat-icon>
   </button>
-  <span>Drinking games</span>
+  <a (click)="onMenuClick('')">Drinking games</a>
 </mat-toolbar>
+<mat-menu #menu="matMenu">
+  @for (menuItem of menuItems; track $index) {
+  <button type="button" mat-menu-item (click)="onMenuClick(menuItem.link)">
+    <mat-icon>{{menuItem.icon }}</mat-icon>
+    <span>{{ menuItem.title }}</span>
+  </button>
+  }
+</mat-menu>

@@ -11,6 +11,12 @@ export const games: Game[] = [
     description: "A set of Never have I ever questions, whoever have done the stated action have to drink.",
     icon: "timer_5"
   },
+  {
+    title: "Pick a card",
+    link: "pick-a-card",
+    description: "Draw a card and follow the instructions.",
+    icon: "playing_cards"
+  },
 ]
 
 export interface Game {

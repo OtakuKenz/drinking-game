@@ -1,0 +1,20 @@
+<div class="example-card center">
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title> Players </mat-panel-title>
+      </mat-expansion-panel-header>
+      <app-players [players]="players" (addPlayer)="onAddPlayer($event)"
+        (removePlayer)="onRemovePlayer($event)"></app-players>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <br>
+  
+  @if (players.length===0) {
+  <p class="no-players-warning">No players added. Please add players to start the game.</p>
+  }
+  @else {
+  <app-pick-card [players]="players"></app-pick-card>
+  }
+</div>

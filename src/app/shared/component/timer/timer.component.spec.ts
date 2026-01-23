@@ -17,6 +17,13 @@ describe('TimerComponent', () => {
     fixture.detectChanges();
   });
 
+  beforeAll(() => {
+    spyOn(window.HTMLMediaElement.prototype, 'play')
+      .and.returnValue(Promise.resolve());
+    spyOn(window.HTMLMediaElement.prototype, 'pause')
+      .and.stub();
+  });
+
   it('should create', () => {
     expect(component).toBeTruthy();
   });

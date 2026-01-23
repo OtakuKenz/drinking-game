@@ -3,7 +3,7 @@
   <mat-card-content>
     <div class="center-div-content marign-bottom-10">
       <p class="question-display">
-        {{question.question}}
+        {{question}}
       </p>
     </div>
     <app-timer #timer (finished)="timeUp()" [duration]="timerDuration" class="marign-bottom-10"></app-timer>

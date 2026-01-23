@@ -1,0 +1,32 @@
+<mat-card class="player-card center" appearance="outlined">
+  <mat-card-content>
+    <form [formGroup]="playersForm" (ngSubmit)="onAddPlayer()">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Player Name</mat-label>
+        <input title="Player Name" matInput formControlName="playerName" required>
+        @if (playersForm.get('playerName')?.invalid && playersForm.get('playerName')?.touched) {
+        <mat-error>
+          Player name is required
+        </mat-error>
+        }
+      </mat-form-field>
+
+      <div class="button-group">
+        <button mat-raised-button color="primary" type="submit" [disabled]="!playersForm.valid">
+          Add Player
+        </button>
+      </div>
+    </form>
+
+    @if (players.length>0) {
+    <mat-list class="players-list">
+      <mat-list-item *ngFor="let player of players; let i = index">
+        <span matListItemTitle>{{ player }}</span>
+        <button type="button" mat-icon-button matListItemMeta (click)="onRemovePlayer(i)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-list>
+    }
+  </mat-card-content>
+</mat-card>

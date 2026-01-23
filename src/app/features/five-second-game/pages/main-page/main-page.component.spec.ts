@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MainPageComponent } from './main-page.component';
-import { Prompt } from '../../constants/questions.constants';
 
 describe('MainPageComponent', () => {
   let component: MainPageComponent;
@@ -19,9 +18,9 @@ describe('MainPageComponent', () => {
 
     // Set up mock data
     component.availableQuestions = [
-      { id: 1, question: 'Q1' },
-      { id: 2, question: 'Q2' },
-      { id: 3, question: 'Q3' },
+      'Q1',
+      'Q2',
+      'Q3',
     ];
     component.answeredQuestion = [];
   });
@@ -33,16 +32,16 @@ describe('MainPageComponent', () => {
   it('pickQuestion should set this.question', () => {
     component.pickQuestion();
     expect(component.question).toBeDefined();
-    expect(component.availableQuestions).toContain(jasmine.objectContaining({ id: component.question?.id }));
+    expect(component.availableQuestions).toContain(component.question!);
   });
 
   it('startTimer should move question to answered', () => {
     component.pickQuestion();
-    const selectedId = component.question!.id;
+    const selectedQuestion = component.question;
     component.timeUp();
 
-    expect(component.answeredQuestion.find(x => x.id === selectedId)).toBeDefined();
-    expect(component.availableQuestions.find(x => x.id === selectedId)).toBeUndefined();
+    expect(component.answeredQuestion.find(x => x === selectedQuestion)).toBeDefined();
+    expect(component.availableQuestions.find(x => x === selectedQuestion)).toBeUndefined();
   });
 
   describe('setTimerDuration', () => {

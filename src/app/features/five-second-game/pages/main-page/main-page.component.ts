@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { fiveSecondPrompts, Prompt } from '../../constants/questions.constants';
+import { fiveSecondPrompts } from '../../constants/questions.constants';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { TimerComponent } from '../../../../shared/component/timer/timer.component';
@@ -16,10 +16,10 @@ import { MatGridListModule } from '@angular/material/grid-list';
 })
 export class MainPageComponent implements OnInit {
 
-  availableQuestions: Prompt[] = [];
-  answeredQuestion: Prompt[] = [];
+  availableQuestions: string[] = [];
+  answeredQuestion: string[] = [];
 
-  question: Prompt | undefined;
+  question: string | undefined;
   displayTimer = false;
   showNext = false;
 
@@ -34,13 +34,13 @@ export class MainPageComponent implements OnInit {
     this.availableQuestions = [...fiveSecondPrompts];
   }
 
-  private getQuestion(): Prompt {
+  private getQuestion(): string {
     const randomIndex = Math.floor(Math.random() * this.availableQuestions.length);
-    return { ...this.availableQuestions[randomIndex] };
+    return this.availableQuestions[randomIndex];
   }
 
-  private moveQuestionToAnswered(question: Prompt) {
-    let index = this.availableQuestions.findIndex(z => z.id === question.id);
+  private moveQuestionToAnswered(question: string) {
+    let index = this.availableQuestions.findIndex(z => z === question);
     this.availableQuestions.splice(index, 1);
     this.answeredQuestion.push(question);
   }
@@ -58,7 +58,7 @@ export class MainPageComponent implements OnInit {
     }
   }
 
-  setTimerDuration(){
+  setTimerDuration() {
     if (!this.timerFormControl.valid) {
       return;
     }

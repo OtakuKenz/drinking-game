@@ -65,4 +65,27 @@ describe('PickCardComponent', () => {
 
     expect(component.initialLoad).toBeFalse();
   });
+  
+  describe('getPlayer()', () => {
+
+    let getPlayerSpy: jasmine.Spy;
+
+    beforeEach(() => {
+      component.ngOnInit();
+      getPlayerSpy = spyOn<any>(component, 'getPlayer').and.callThrough();
+    });
+    it('should return a player from the list if category is player or playerOrGroup', () => {
+      const playerCategory = 'player';
+      const result = (component as any).getPlayer(playerCategory);
+      expect(getPlayerSpy).toHaveBeenCalledWith(playerCategory);
+      expect(component.players).toContain(result);
+    });
+
+    it('should return cardPicker if category is not player or playerOrGroup', () => {
+      const nonPlayerCategory = 'otherCategory';
+      const result = (component as any).getPlayer(nonPlayerCategory);
+      expect(getPlayerSpy).toHaveBeenCalledWith(nonPlayerCategory);
+      expect(result).toBe(component.cardPicker);
+    });
+  });
 });

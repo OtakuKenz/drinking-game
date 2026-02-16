@@ -1,20 +1,25 @@
 @if (initialLoad) {
   <div class="center-div-content">
-    <button matButton="filled" type="button" (click)="pickQuestion()">Start!</button>
+    <button matButton="filled" type="button" (click)="pickQuestion()">
+      Start!
+    </button>
   </div>
-}
-@else {
-<mat-card class="center" appearance="outlined">
-  <mat-card-header class="">
-    <h3>Question for: <p>{{player}}</p></h3>
-  </mat-card-header>
-  <mat-card-content>
-    <div class="center-div-content marign-bottom-10">
-      <h2>{{question}}</h2>
-    </div>
-  </mat-card-content>
+} @else {
+  <mat-card class="center" appearance="outlined">
+    <mat-card-header class="">
+      <h3>
+        Question for:
+        <p>{{ player }}</p>
+      </h3>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="center-div-content marign-bottom-10">
+        <h2 class="text-center">{{ question?.prompt }}</h2>
+      </div>
+    </mat-card-content>
 
-  <button class="center" matButton type="button" (click)="pickQuestion()">Next!</button>
-
-</mat-card>
+    <button class="center marign-bottom-10" matButton type="button" (click)="pickQuestion()">
+      Next!
+    </button>
+  </mat-card>
 }

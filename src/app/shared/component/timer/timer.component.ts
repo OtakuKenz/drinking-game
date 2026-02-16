@@ -30,10 +30,10 @@ export class TimerComponent {
 
   start() {
     // Reset and start
+    this.stop();
     this.triggerTicking();
     this.displayTime = true;
     this.displayStart = false;
-    this.stop();
     this.timer = this.duration;
     this.displayStop = true;
 
@@ -70,6 +70,7 @@ export class TimerComponent {
   }
 
   stop() {
+    this.stopTicking();
     if (this.intervalId) {
       clearInterval(this.intervalId);
       this.intervalId = null;
